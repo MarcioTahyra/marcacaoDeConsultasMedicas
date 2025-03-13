@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "my-app",
-    "slug": "my-app",
+    "name": "meuPrimeiroAppRN",
+    "slug": "meuPrimeiroAppRN",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
