@@ -11,6 +11,10 @@ export const HeaderContainer = styled.View`
   shadow-opacity: 0.3;
   shadow-radius: 4px;
   shadow-offset: 0px 2px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; /* Empurra o título para a esquerda e o switch para a direita */
+  padding: ${theme.spacing.medium}px;
 `;
 
 export const HeaderTitle = styled.Text`

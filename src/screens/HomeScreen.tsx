@@ -1,7 +1,7 @@
-import React from 'react';
-
+import React, { useState } from 'react';
 import styled from 'styled-components/native';
-import { FlatList } from 'react-native';
+import { FlatList, Switch, View } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import { Button } from 'react-native-elements';
 import { HeaderContainer, HeaderTitle } from '../components/Header';
 import theme from '../styles/theme';
@@ -18,19 +18,40 @@ type HomeScreenProps = {
 };
 
 const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
-  const [appointments, setAppointments] = React.useState([]);
+  const [appointments, setAppointments] = useState([]);
+
+  const MeuSwitch = () => {
+    const [isDarkMode, setIsDarkMode] = useState(false);
+
+    return (
+      <SwitchContainer>
+        <Icon 
+          name={isDarkMode ? "moon-o" : "sun-o"} 
+          size={20} 
+          color={isDarkMode ? "white" : "#173D6EFF"} 
+        />
+        <StyledSwitch 
+          value={isDarkMode} 
+          onValueChange={() => setIsDarkMode(!isDarkMode)} 
+          thumbColor={isDarkMode ? theme.colors.primary : "#fff"}
+          trackColor={{ false: "#ccc", true: theme.colors.primary }}
+        />
+      </SwitchContainer>
+    );
+  };
 
   return (
     <Container>
       <HeaderContainer>
         <HeaderTitle>Minhas Consultas</HeaderTitle>
+        <MeuSwitch />
       </HeaderContainer>
 
       <Content>
         <Button 
           title="Agendar Nova Consulta"
           icon={{
-            name: 'calendar-plus',
+            name: 'calendar-plus-o',
             type: 'font-awesome',
             size: 20,
             color: 'white'
@@ -64,6 +85,15 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
     </Container>
   );
 };
+
+const StyledSwitch = styled(Switch)`
+  transform: scale(0.7);
+`;
+
+const SwitchContainer = styled.View`
+  flex-direction: row;
+  align-items: center;
+`;
 
 const Container = styled.View`
   flex: 1;
