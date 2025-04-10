@@ -1,5 +1,5 @@
 import React from 'react';
-import { AuthProvider } from './src/contexts/AuthContext';
+import { AuthProvider } from './src/context/AuthContext';
 import { AppNavigator } from './src/navigation/AppNavigator';
 import { ThemeProvider } from 'styled-components/native';
 import theme from './src/styles/theme';
